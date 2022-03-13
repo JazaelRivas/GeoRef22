@@ -136,25 +136,27 @@
               <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
               
               <script>
-                  function iniciaMapa(){
-                        var coordenadas = {
-                            lat: 21.152162 , 
-                            lng:-101.711022
-                        }
-                        
-                        var map =  new google.maps.Map(
-                            document.getElementById('mapa'),
-                            {
-                                center: coordenadas,
-                                zoom: 15
-                            }
-                        );
+                  function iniciaMapa() {
+            var coordenadas = {
+                lat: 21.152162 , 
+                lng: -101.711022
+            }
 
-                        var marcador =  new.google.maps.Marker({
-                            position: coordenadas,
-                            map: map
-                        });
-                  }
+            var map = new google.maps.Map(
+                document.getElementById('mapa'),
+                {
+                    center: coordenadas,
+                    zoom: 15
+                }
+
+            );
+
+            var marcador = new google.maps.Marker({
+                position: coordenadas,
+                map: map
+            });
+            
+        }
               </script>
               <script>
                 AOS.init();
