@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica3 Fetch</title>
+
+    <style>
+        #map{
+            width: 100%;
+            height: 100%;
+        }
+        html, body{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+                <div id="map"></div>
+
+                <script>
+                    var coordenadas = {
+                        lat : 0,
+                        lng : 0
+                    }
+
+                    
+                    var propiedades = {
+                        center :  coordenadas,
+                        zoom : 2
+                    }
+
+                    function obtieneMarcadores(){
+                         const markers = [
+                             {
+                                 name: "Mexico",
+                                 longitude : "-99.1276",
+                                 latitude : "19.427"
+                             },
+                             {
+                                 name: "Brasil",
+                                 longitude : "-47.9292",
+                                 latitude : "-15.7801"
+                             },
+                             {
+                                 name: "España",
+                                 longitude : "-3.70327",
+                                 latitude : "40.4167"
+                             },
+                         ];
+
+                         return markers;
+                        
+                    }
+
+                    function iniciaMapa(){
+                        const map = new google.maps.Map(document.getElementById("map"), propiedades);
+                        const marcadores = obtieneMarcadores();
+                        console.log(marcadores);
+                        for(marcador of marcadores){
+                            let marker = new google.maps.Marker({
+                                map : map,
+                                position : new google.maps.LatLng(marcador.latitude,marcador.longitude),
+                                title : marcador.name
+                            });
+                        }
+                    }
+
+
+                </script>
+
+
+            <script src="https://maps.googleapis.com/maps/api/js?key=%41%49%7A%61%53%79%43%4D%72%51%67%67%61%2D%43%35%7A%43%75%5A%4C%54%56%6B%32%4D%50%56%7A%58%37%6E%61%71%4B%5A%58%5A%55&callback=%69%6E%69%63%69%61%4D%61%70%61" async defer></script>
+    
+</body>
+</html>
